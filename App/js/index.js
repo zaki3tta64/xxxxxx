@@ -46,6 +46,33 @@ xui.Class('App', 'xui.Module',{
                 .setCaption("اسم المكتب")
             );
             
+            append(
+                xui.create("xui.UI.FormLayout")
+                .setHost(host,"xui_ui_formlayout2")
+                .setLeft("2.2857142857142856em")
+                .setTop("3.8095238095238093em")
+                .setWidth("30.01904761904762em")
+                .setHeight("24.99047619047619em")
+                .beforeInputAlert("_xui_ui_formlayout2_beforeinputalert")
+                .setCustomStyle({
+                    "POOL" : {
+                        "color" : "#FF8C00"
+                    }
+                })
+                .setCustomClass({
+                    "POOL" : "sets"
+                })
+            );
+            
+            append(
+                xui.create("xui.UI.FormLayout")
+                .setHost(host,"xui_ui_formlayout4")
+                .setLeft("9.904761904761905em")
+                .setTop("6.095238095238095em")
+                .setWidth("30.01904761904762em")
+                .setHeight("24.99047619047619em")
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
@@ -54,6 +81,16 @@ xui.Class('App', 'xui.Module',{
         customAppend : function(parent, subId, left, top){
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
+        },
+        /**
+         * Fired before one of controls in form will show the 'invalid' or 'required' alert window. If returns false, the default action will be ignored
+         * @method beforeInputAlert [xui.UI.FormLayout event]
+         * @param {xui.UIProfile.} profile  The current control's profile object
+         * @param {xui.UIProfile} ctrlPrf , the input control's profile object
+         * @param {String} type , alert type. invalid or required
+        */
+        _xui_ui_formlayout2_beforeinputalert:function(profile, ctrlPrf, type){
+            var ns = this, uictrl = profile.boxing();
         }
         /*,
         // To determine how properties affects this module
